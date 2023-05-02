@@ -1,0 +1,29 @@
+
+#btn{
+    
+
+        height:35px;
+        width:100px;
+         background-color:rgb(198, 194, 194);
+        border:2px solid rgb(225, 219, 219);
+        color:black;
+        position :absolute;
+        left:100px;
+        top:100px;
+    
+        
+     }
+
+
+
+
+
+
+@media screen and (max-width:540px){
+    .btn{
+        position:absolute;
+        left:23px;
+        top: 130px;
+        
+    }
+}

@@ -1,0 +1,73 @@
+*{
+    margin: 0px;
+    box-sizing: border-box;
+}
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Sofia+Sans+Semi+Condensed:wght@300;500&display=swap');
+.header{
+    height: 10vh;
+    width:100vw;
+    display: flex;
+    background-color: rgb(248, 243, 243);
+    justify-content: space-between;
+    padding-inline:50px ;
+    padding-block: 15px;
+    box-shadow: 0px 0px 8px 0px;
+    
+    
+}
+.header.dark{
+    
+    background-color: rgba(14, 29, 48, 0.927);
+    color: white;
+    
+}
+
+
+.bb{
+    height: 35px;
+    width: 170px;
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Sofia Sans Semi Condensed', sans-serif;
+    border-radius: 5px;
+    border: 2px solid blue;
+    color:rgb(37, 138, 156) ;
+    background-color: rgba(193, 190, 190, 0.182);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    padding-block: 5px;
+    cursor: pointer;
+    
+    
+}
+
+.bb.dd{
+    color: white;
+
+}
+
+
+
+
+body{
+    background-color: rgba(209, 203, 203, 0.53);
+    font-family: 'Oswald', sans-serif;
+font-family: 'Sofia Sans Semi Condensed', sans-serif;
+}
+
+@media screen and (max-width:540px)
+{
+    .header{
+        height: 12vh;
+        font-size: 12px;
+        padding-inline:20px ;
+        padding-block: 25px;
+
+    }
+    body{
+        margin: 0px;
+        box-sizing: border-box;
+    }
+}
