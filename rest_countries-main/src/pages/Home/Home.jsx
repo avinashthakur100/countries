@@ -19,7 +19,7 @@ const Home = ({ mode, setmode }) => {
 
   useEffect(() => {
     async function getdata() {
-      let { data } = await axios("https://restcountries.com/v2/all");
+      let { data } = await axios("https://restcountries.com/v3.1/all?fields=name,capital,region,flags,population");
       setcntry(data);
       allcountries = data;
     }
