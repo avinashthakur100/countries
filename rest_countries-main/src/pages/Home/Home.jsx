@@ -22,6 +22,7 @@ const Home = ({ mode, setmode }) => {
       let { data } = await axios("https://restcountries.com/v3.1/all?fields=name,capital,region,flags,population");
       setcntry(data);
       allcountries = data;
+      console.log(data);
     }
     getdata();
   }, []);
@@ -34,7 +35,7 @@ const Home = ({ mode, setmode }) => {
 
   const searching = (arr, keyword, searchby) => {
     return arr.filter((item) =>
-      item[searchby].toLowerCase().startsWith(keyword.toLowerCase())
+      item?.name?.common?.toLowerCase().startsWith(keyword.toLowerCase())
     );
   };
 
@@ -51,8 +52,10 @@ const Home = ({ mode, setmode }) => {
   const handlesearch = (e) => {
     let keyword = e.target.value;
     let searchby = "name";
+    
     let result = cntry && searching(allcountries, keyword, searchby);
     setcntry(result);
+    console.log(result);
   };
 
   const handlesort = (e) => {
@@ -74,7 +77,6 @@ const Home = ({ mode, setmode }) => {
       <div className="top">
         <input
           type="text"
-          Zx
           className={`${mode ? "dpk" : ""} txt`}
           placeholder="Search Here"
           onChange={handlesearch}
@@ -105,7 +107,7 @@ const Home = ({ mode, setmode }) => {
       <div className={`${mode ? "dark" : ""} cd`}>
         {paginateresult &&
           paginateresult?.map((detail) => (
-            <Countrycode mode={mode} country={detail} key={detail?.area} />
+            <Countrycode mode={mode} country={detail} key={detail?.cca3 || detail?.name?.common || detail?.flags?.png} />
           ))}
       </div>
 

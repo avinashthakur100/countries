@@ -13,21 +13,21 @@ const Countrycode = ({country , mode,setMode}) => {
   return (
     <div className="crd">
     <Card  className={`${mode ? "drk": " "} card`}>
-      <Link to={`/Next/${country?.name}`}>
+      <Link to={`/Next/${encodeURIComponent(country?.name?.common || country?.name)}`}>
       <CardMedia
         sx={{ height: 140 }}
-        image={country.flag}
-        title="green iguana"
+        image={country?.flags?.png || country?.flags?.svg || country?.flag}
+        title={country?.name?.common || country?.name || 'country flag'}
       />
       </Link>
       <CardContent >
       
         <Typography  className={`${mode ? "dark": ""} cmd`} gutterBottom variant="h6" component="div">
-           {country.name} 
+           {country?.name?.common || country?.name} 
 
-           <p id='p1'> POPULATION<p id='p2'>{country.population}</p></p>
-           <p id='p1'> REGION<p id='p2'>{country.region}</p></p>
-           <p id='p1'> CAPITAL<p id='p2'>{country.capital}</p></p>
+           <div id='p1'> POPULATION <span id='p2'>{country?.population?.toLocaleString?.() ?? country?.population}</span></div>
+           <div id='p1'> REGION <span id='p2'>{country?.region}</span></div>
+           <div id='p1'> CAPITAL <span id='p2'>{Array.isArray(country?.capital) ? country.capital[0] : country?.capital}</span></div>
          
         </Typography>
         

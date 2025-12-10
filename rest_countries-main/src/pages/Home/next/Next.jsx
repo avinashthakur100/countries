@@ -12,11 +12,12 @@ const Next = ({mode , setMode} ) => {
 
     useEffect(()=>{
         async function fetchSingle(){
+            if (!name) return;
             let {data}=await axios(`https://restcountries.com/v2/name/${name}`);
             setSingle(data);
         }
         fetchSingle();
-    },[])
+    },[name])
     console.log(single);
   return (
     <div className={`${mode ? "dark": ""} main`}>
